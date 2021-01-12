@@ -2,7 +2,7 @@
 
 
  <h2> Writing Numpy Arrays to SQLite databases (NumpyToSQLite/CreateDatabasev2.py) </h2>
-  In CreateDatabasev2.py you specify which pulse information in the numpy array you want as a database file. This convertion is then done by writing multiple temporary databases to disk in parallel, that are then merged to one large database in the end. The pulse information is transformed using sklearn.preprocessing.RobustScaler before saved in a .db file. This step can be removed from code or replaced with your own transforms. The code assigns an <strong> event number<\strong> to each event, that will facilitate extraction from the database. Event numbers in this code ranges from 0 to the number of events in the numpy array. \ 
+  In CreateDatabasev2.py you specify which pulse information in the numpy array you want as a database file. This convertion is then done by writing multiple temporary databases to disk in parallel, that are then merged to one large database in the end. The pulse information is transformed using sklearn.preprocessing.RobustScaler before saved in a .db file. This step can be removed from code or replaced with your own transforms. The code assigns an <strong> event number<\strong> to each event, that will facilitate extraction from the database. Event numbers in this code ranges from 0 to the number of events in the numpy array. The database will contain two fields, <strong> truth </strong> and <strong> features </strong>. Truth contains the target information from 'MCInIcePrimary' and features contain the associated pulse information.  \ 
  Please note that writing .db files is memory intensive. You can decrease the memory usage by decreasing df_size in CreateDatabasev2.py (which is set to 100.000) but this will also increase run time. For reference: It takes around 2 hours to write 4.4 million events to a .db file at n_workers  = 4. 
 
 <strong>CreateDatabasev2.py takes arguments: </strong>\
@@ -22,19 +22,19 @@
   ```html
   python CreateDatabsesv2.py --array_path ~/numpy_arrays --key 'SplitInIcePulses' --db_name 'ADataBase' -- gcd_path ~/gcd --outdir ~/MyDatabases --n_workers 4 
   ```
-  Suppose we now wanted to extract event number 1001, one could do so by
+  Suppose we now wanted to extract events (0,1,2,3,4), one could do so by
   
  ```html
  import pandas as pd
 import sqlite3
 
-db_file = mydbfile.db
-desired_event = 1001
+db_file = "~data/mydbfile.db"
+
 with sqlite3.connect(db_file) as con:
-   truth_query   = 'select * from truth where  event_no == %s'%desired_event
+   truth_query   = 'select * from truth where  event_no IN (0,1,2,3,4)'
    truth         = pd.read_sql(truth_query, con)
    
-   feature_query = 'select * from features where  event_no == %s'%desired_event
+   feature_query = 'select * from features where  event_no IN (0,1,2,3,4)'
    features      = pd.read_sql(feature_query, con)
  ```
   
