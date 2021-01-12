@@ -17,9 +17,27 @@
   
   <strong>--n_workers </strong>: The number of workers 
   
-  <strong>Example:</strong>    
+  <strong>Example:</strong>
+  ```html
   python CreateDatabsesv2.py --array_path ~/numpy_arrays --key 'SplitInIcePulses' --db_name 'ADataBase' -- gcd_path ~/gcd/gcdfile.pkl --outdir ~/MyDatabases --n_workers 4 
+  ```
   
- <h2>  </h2> 
-  
+ <h2> Writing I3-Files to Numpy Arrays </h2>
+ Run the scripts in I3ToNumpy in the following order:
+ ```html
+  ./load_cvmfs.sh
+ ```
+Among many things, this loads <strong> IceTray </strong>, IceCube software required to read I3-files. Now you can write your I3-files to numpy arrays using I3Cols
+ ```html
+  ./makearray.sh
+ ```
+In I3ToNumpy/makearray.sh you can change the path and keys you which to extract from the I3-files. To create the gcd.pkl file, you can then run:
+
+ ```html
+  ./create_geo_array.sh
+ ```
+Note that I3ToNumpy/create_geo_array.sh was NOT made by me.
+
+
+
   
