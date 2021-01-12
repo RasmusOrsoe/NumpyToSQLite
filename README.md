@@ -11,7 +11,7 @@
   
   <strong>--db_name</strong>   : The name of your database. E.g: 'myfirstdatabase' 
   
- <strong> --gcd_path</strong>  : The path to the gcd.pkl file containing spatial information. This file can be produced via /I3ToNumpy/create_geoarray.py if you don't have it.</p>  
+ <strong> --gcd_path</strong>  : The path to the gcd.pkl file containing spatial information. This file can be produced via /I3ToNumpy/create_geo_array.py if you don't have it.</p>  
   
  <strong> --outdir</strong>    : The Location in which you wish to save the database and the transformers. The script will save the database in yourpath/data and the pickled transformers in yourpath/meta. The transformers can be read using pandas.read_pickle()  
   
@@ -19,7 +19,7 @@
   
   <strong>Example:</strong>
   ```html
-  python CreateDatabsesv2.py --array_path ~/numpy_arrays --key 'SplitInIcePulses' --db_name 'ADataBase' -- gcd_path ~/gcd/gcdfile.pkl --outdir ~/MyDatabases --n_workers 4 
+  python CreateDatabsesv2.py --array_path ~/numpy_arrays --key 'SplitInIcePulses' --db_name 'ADataBase' -- gcd_path ~/gcd --outdir ~/MyDatabases --n_workers 4 
   ```
   
  <h2> Writing I3-Files to Numpy Arrays </h2>
