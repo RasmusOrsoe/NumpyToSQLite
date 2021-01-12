@@ -24,19 +24,29 @@
   
  <h2> Writing I3-Files to Numpy Arrays </h2>
  Run the scripts in I3ToNumpy in the following order:
+ 
  ```html
   ./load_cvmfs.sh
  ```
-Among many things, this loads <strong> IceTray </strong>, IceCube software required to read I3-files. Now you can write your I3-files to numpy arrays using I3Cols
+Among many things, this loads <strong> IceTray </strong>, IceCube software required to read I3-files. Now you can write your I3-files to numpy arrays using I3Cols:
+
  ```html
-  ./makearray.sh
+  ./create_geo_array.sh
  ```
 In I3ToNumpy/makearray.sh you can change the path and keys you which to extract from the I3-files. To create the gcd.pkl file, you can then run:
 
  ```html
   ./create_geo_array.sh
  ```
-Note that I3ToNumpy/create_geo_array.sh was NOT made by me.
+
+<strong> Notes : </strong>
+I3ToNumpy/create_geo_array.sh was NOT made by me.
+If your cvmfs environment doesn't contain i3Cols or other external packages, you can install these on user level using
+
+ ```html
+  pip install --user yourpackage
+ ```
+
 
 
 
