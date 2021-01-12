@@ -59,7 +59,7 @@ In I3ToNumpy/makearray.sh you can change the path and keys you wish to extract f
  ```
 
 <strong> Notes : </strong> \
-I3ToNumpy/create_geo_array.sh was NOT made by me. \
+I3ToNumpy/create_geo_array.sh was NOT made by me. (source: https://github.com/IceCubeOpenSource/retro/blob/master/retro/i3info/extract_gcd.py.)  \
 If your cvmfs environment doesn't contain i3Cols or other external packages, you can install these on user level using
 
  ```html
