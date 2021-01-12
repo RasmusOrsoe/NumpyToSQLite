@@ -25,7 +25,7 @@
   Suppose we now wanted to extract events (0,1,2,3,4), one could do so by
   
  ```html
- import pandas as pd
+import pandas as pd
 import sqlite3
 
 db_file = "~data/mydbfile.db"
@@ -51,7 +51,7 @@ Among many things, this loads <strong> IceTray </strong>, IceCube software requi
  ```html
   ./makearray.sh
  ```
-In I3ToNumpy/makearray.sh you can change the path and keys you which to extract from the I3-files. To create the gcd.pkl file, you can then run:
+In I3ToNumpy/makearray.sh you can change the path and keys you wish to extract from the I3-files. To create the gcd.pkl file, you can then run:
 
  ```html
   ./create_geo_array.sh
