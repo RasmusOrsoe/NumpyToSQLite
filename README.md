@@ -21,7 +21,8 @@
   ```html
   python CreateDatabsesv2.py --array_path ~/numpy_arrays --key 'SplitInIcePulses' --db_name 'ADataBase' -- gcd_path ~/gcd --outdir ~/MyDatabases --n_workers 4 
   ```
-  
+  <strong>Notes:</strong> \
+  This is effectively a Lite version of https://github.com/ehrhorn/cubedb, a more feature rich pipe-line. 
  <h2> Writing I3-Files to Numpy Arrays </h2>
  Run the scripts in I3ToNumpy in the following order:
  
