@@ -55,11 +55,11 @@ Among many things, this loads <strong> IceTray </strong>, IceCube software requi
 In I3ToNumpy/makearray.sh you can change the path and keys you wish to extract from the I3-files. To create the gcd.pkl file, you can then run:
 
  ```html
-  ./create_geo_array.sh
+  ./create_geo_array.py
  ```
 
 <strong> Notes : </strong> \
-I3ToNumpy/create_geo_array.sh was NOT made by me. (source: https://github.com/IceCubeOpenSource/retro/blob/master/retro/i3info/extract_gcd.py.)  \
+I3ToNumpy/create_geo_array.py was NOT made by me. (source: https://github.com/IceCubeOpenSource/retro/blob/master/retro/i3info/extract_gcd.py.)  \
 If your cvmfs environment doesn't contain i3Cols or other external packages, you can install these on user level using
 
  ```html
