@@ -158,7 +158,7 @@ def CreateDataBase(array_path,db_name,key,gcd_path,outdir,n_workers):
     
     ####################################
     #                                  #
-    #      LEGACY TRUTH VARIABLES      #
+    #    DeepCore TRUTH VARIABLES      #
     #                                  #
     ####################################
     
@@ -189,7 +189,7 @@ def CreateDataBase(array_path,db_name,key,gcd_path,outdir,n_workers):
     #truths = str('event_no,energy_log10,time,vertex_x,vertex_y,vertex_z,direction_x,direction_y,direction_z,azimuth,zenith,pid)
     ####################################
     #                                  #
-    #     LEGACY FEATURES VARIABLES    #
+    #    DeepCore TRUTH VARIABLES      #
     #                                  #
     ####################################
     print('EXTRACTING FEATURES ...')
