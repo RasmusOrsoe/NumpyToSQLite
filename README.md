@@ -31,7 +31,7 @@
 Among many things, this loads <strong> IceTray </strong>, IceCube software required to read I3-files. Now you can write your I3-files to numpy arrays using I3Cols:
 
  ```html
-  ./create_geo_array.sh
+  ./makearray.sh
  ```
 In I3ToNumpy/makearray.sh you can change the path and keys you which to extract from the I3-files. To create the gcd.pkl file, you can then run:
 
@@ -39,8 +39,8 @@ In I3ToNumpy/makearray.sh you can change the path and keys you which to extract 
   ./create_geo_array.sh
  ```
 
-<strong> Notes : </strong>
-I3ToNumpy/create_geo_array.sh was NOT made by me.
+<strong> Notes : </strong> \
+I3ToNumpy/create_geo_array.sh was NOT made by me. \
 If your cvmfs environment doesn't contain i3Cols or other external packages, you can install these on user level using
 
  ```html
