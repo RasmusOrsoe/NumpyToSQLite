@@ -2,7 +2,8 @@
 
 
  <h2> Writing Numpy Arrays to SQLite databases (NumpyToSQLite/CreateDatabasev2.py) </h2>
-  In CreateDatabasev2.py you specify which pulse information in the numpy array you want as a database file. This convertion is then done by writing multiple temporary databases to disk in parallel, that are then merged to one large database in the end. The pulse information is transformed using sklearn.preprocessing.RobustScaler before saved in a .db file. This step can be removed from code or replaced with your own transforms. Please note that writing .db files is memory intensive. You can decrease the memory usage by decreasing df_size in CreateDatabasev2.py (which is set to 100.000) but this will also increase run time. For reference: It takes around 2 hours to write 4.4 million events to a .db file at n_workers  = 4. 
+  In CreateDatabasev2.py you specify which pulse information in the numpy array you want as a database file. This convertion is then done by writing multiple temporary databases to disk in parallel, that are then merged to one large database in the end. The pulse information is transformed using sklearn.preprocessing.RobustScaler before saved in a .db file. This step can be removed from code or replaced with your own transforms. The code assigns an <strong> event number<\strong> to each event, that will facilitate extraction from the database. Event numbers in this code ranges from 0 to the number of events in the numpy array. \ 
+ Please note that writing .db files is memory intensive. You can decrease the memory usage by decreasing df_size in CreateDatabasev2.py (which is set to 100.000) but this will also increase run time. For reference: It takes around 2 hours to write 4.4 million events to a .db file at n_workers  = 4. 
 
 <strong>CreateDatabasev2.py takes arguments: </strong>\
   <strong>--array_path</strong>: The path to numpy arrays from the I3-to-Numpy Pipeline I3Cols. E.g: /home/my_awesome_arrays 
@@ -21,6 +22,22 @@
   ```html
   python CreateDatabsesv2.py --array_path ~/numpy_arrays --key 'SplitInIcePulses' --db_name 'ADataBase' -- gcd_path ~/gcd --outdir ~/MyDatabases --n_workers 4 
   ```
+  Suppose we now wanted to extract event number 1001, one could do so by
+  
+ ```html
+ import pandas as pd
+import sqlite3
+
+db_file = mydbfile.db
+desired_event = 1001
+with sqlite3.connect(db_file) as con:
+   truth_query   = 'select * from truth where  event_no == %s'%desired_event
+   truth         = pd.read_sql(truth_query, con)
+   
+   feature_query = 'select * from features where  event_no == %s'%desired_event
+   features      = pd.read_sql(feature_query, con)
+ ```
+  
   <strong>Notes:</strong> \
   This is effectively a Lite version of https://github.com/ehrhorn/cubedb, a more feature rich pipe-line. 
  <h2> Writing I3-Files to Numpy Arrays </h2>
